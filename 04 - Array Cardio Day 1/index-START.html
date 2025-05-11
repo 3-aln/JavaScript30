@@ -147,6 +147,27 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    // My solution - I'll make an object whose keys are the string, values are the number of instances of that string
+    const instances = data.reduce((obj, current) => {
+      if (current in obj) {
+        obj[current]++;
+      } else {
+        obj[current] = 1;
+      }
+      return obj;
+    }, {});
+    console.table(instances);
+
+    // Wes's solution:
+    const transportation = data.reduce(function(obj, item) {
+      if (!obj[item]) {
+        obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+    }, {});
+    console.log(transportation);
+
   </script>
 </body>
 </html>
